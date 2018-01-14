@@ -1,0 +1,68 @@
+{
+  "name": "spotify-wrapper-player",
+  "version": "1.0.0",
+  "description": "Spotify Player",
+  "main": "lib/index.js",
+  "scripts": {
+    "babel-transpiler": "./node_modules/.bin/babel --out-dir lib src",
+    "build-es5": "npm run clear && npm run babel-transpiler",
+    "build-umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build-umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build": "npm run build-es5 && npm run build-umd && npm run build-umd:min",
+    "clear": "rimraf lib",
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "prepush": "npm run lint && npm run test:coverage",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test",
+    "start": "./node_modules/.bin/webpack-dev-server --open"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": "tests/**"
+  },
+  "eslintIgnore": [
+    "tests/*.js"
+  ],
+  "keywords": [
+    "js",
+    "tdd",
+    "biblioteca"
+  ],
+  "author": "Darlan Caruso <devcaruso@gmail.com> (http://darlancaruso.com.br/)",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
+    "mocha": "^4.1.0",
+    "nyc": "^11.4.1",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.1.3",
+    "sinon-chai": "^2.14.0",
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1"
+  }
+}
