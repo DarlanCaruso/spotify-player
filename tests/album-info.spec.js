@@ -44,4 +44,10 @@ describe('Album Info', () => {
 
     expect(element.innerHTML).to.be.eql(markup);
   });
+  
+  it('should return the data', () => {
+    const element2 = document.createElement('div');
+    const dataReturn = renderAlbumInfo(data, element2);
+    expect(dataReturn).to.be.eql(data);
+  });
 });

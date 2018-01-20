@@ -11,7 +11,7 @@
     "build": "npm run build-es5 && npm run build-umd && npm run build-umd:min",
     "clear": "rimraf lib",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
-    "prepush": "npm run lint && npm run test:coverage",
+    "prepush": "npm run test:coverage",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
@@ -44,7 +44,8 @@
   "license": "MIT",
   "dependencies": {
     "js-spotify-wrapper": "^1.1.4",
-    "node-fetch": "^1.7.3"
+    "node-fetch": "^1.7.3",
+    "pretty-ms": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
