@@ -81,26 +81,26 @@ describe('Album List', () => {
 
   const markup = `
     <div class="list-item" data-id="${data[0].id}">
-      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image">
+      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image" data-id="${album.id}">
       <div class="list-description">
-        <p class="list-title">${data[0].name}</p>
-        <p class="list-subtitle">${data[0].artists[0].name}</p>
+        <p class="list-title" data-id="${album.id}">${data[0].name}</p>
+        <p class="list-subtitle" data-id="${album.id}">${data[0].artists[0].name}</p>
       </div>
     </div>`;
 
   const markup2 = `
     <div class="list-item" data-id="${data[0].id}">
-      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image">
+      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image" data-id="${album.id}">
       <div class="list-description">
-        <p class="list-title">${data[0].name}</p>
-        <p class="list-subtitle">${data[0].artists[0].name}</p>
+        <p class="list-title" data-id="${album.id}">${data[0].name}</p>
+        <p class="list-subtitle" data-id="${album.id}">${data[0].artists[0].name}</p>
       </div>
     </div>
     <div class="list-item" data-id="${data[0].id}">
-      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image">
+      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image" data-id="${album.id}">
       <div class="list-description">
-        <p class="list-title">${data[0].name}</p>
-        <p class="list-subtitle">${data[0].artists[0].name}</p>
+        <p class="list-title" data-id="${album.id}">${data[0].name}</p>
+        <p class="list-subtitle" data-id="${album.id}">${data[0].artists[0].name}</p>
       </div>
     </div>`;
 
